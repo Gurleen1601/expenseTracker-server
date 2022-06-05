@@ -24,7 +24,7 @@ dbConnect();
 app.use(express.json());
 
 app.get('/',(req,res) => {
-    res.json({msg:"welcome"});
+    res.json({msg:"Welcome To Expense Tracker"});
 })
 
 //users routes
