@@ -1,5 +1,4 @@
 const expressAsyncHandler = require('express-async-handler');
-const res = require('express/lib/response');
 const Income = require('../../model/Income');
 
 
