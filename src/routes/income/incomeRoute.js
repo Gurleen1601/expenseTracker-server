@@ -1,5 +1,5 @@
 const express = require("express");
-const {createIncCtrl,fetchAllIncCtrl,fetchIncDetailsCtrl,updateIncCtrl} = require("../../controllers/income/incomeCtrl");
+const {createIncCtrl,fetchAllIncCtrl,fetchIncDetailsCtrl,updateIncCtrl,deleteIncCtrl} = require("../../controllers/income/incomeCtrl");
 
 
 
@@ -9,4 +9,5 @@ incomeRoute.post("/",createIncCtrl);
 incomeRoute.get("/",fetchAllIncCtrl);
 incomeRoute.get("/:id",fetchIncDetailsCtrl);
 incomeRoute.put("/:id",updateIncCtrl);
+incomeRoute.delete("/:id",deleteIncCtrl);
 module.exports = incomeRoute;  
