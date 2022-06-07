@@ -9,7 +9,7 @@ const dotenv=require("dotenv");
 //importing the database into the server
 const dbConnect = require('./config/dbConnect');
 const incomeRoute = require('./routes/income/incomeRoute');
-const expenseRoute = require('./routes/income/expenseRoute');
+
 
 // using express
 const app = express();
@@ -34,8 +34,7 @@ app.use('/api/users',userRoute);
 //income routes
 app.use('/api/income',incomeRoute);
 
-//expenses routes
-app.use('/api/expenses',expenseRoute);
+
 
  //error
 app.use(notFound);
