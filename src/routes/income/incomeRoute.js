@@ -1,10 +1,11 @@
 const express = require("express");
-const createIncCtrl = require("../../controllers/income/incomeCtrl");
+const {createIncCtrl,fetchAllIncCtrl,fetchIncDetailsCtrl} = require("../../controllers/income/incomeCtrl");
 
 
 
 const incomeRoute = express.Router();
 
 incomeRoute.post("/",createIncCtrl);
-
-module.exports = incomeRoute;
+incomeRoute.get("/",fetchAllIncCtrl);
+incomeRoute.get("/:id",fetchIncDetailsCtrl);
+module.exports = incomeRoute;  

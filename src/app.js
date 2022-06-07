@@ -27,7 +27,7 @@ app.get('/',(req,res) => {
     res.json({msg:"Welcome To Expense Tracker"});
 })
 
-//users routes
+//users' routes
 app.use('/api/users',userRoute);
 
 //income routes
