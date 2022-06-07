@@ -37,4 +37,21 @@ const fetchIncDetailsCtrl=expressAsyncHandler(async(req,res) => {
     }
 }); 
 
-module.exports = {createIncCtrl,fetchAllIncCtrl,fetchIncDetailsCtrl};
+//update income
+//fetch single income
+    const updateIncCtrl=expressAsyncHandler(async(req,res) => {
+        const {id} = req?.params;
+        const{title,amount,description}=req.body;
+        try{
+        const income=await Income.findByIdAndUpdate(id,{
+            title,amount,description
+        },
+        {new:true }
+        );
+        res.json(income);
+        }catch(error){
+        res.json(error);
+        }
+    }); 
+
+module.exports = {createIncCtrl,fetchAllIncCtrl,fetchIncDetailsCtrl,updateIncCtrl};
