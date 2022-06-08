@@ -18,8 +18,9 @@ const createExpCtrl=expressAsyncHandler(async(req,res)=>{
 
 //fetch all expenses
 const fetchAllExpCtrl=expressAsyncHandler(async(req,res)=>{
-     try{
-      const expense=await Expense.find();
+    const {page} = req.query;
+    try{
+      const expense=await Expense.paginate({},{limit:2,page:Number(page)});
      res.json(expense);
      }catch(error){
       res.json(error);

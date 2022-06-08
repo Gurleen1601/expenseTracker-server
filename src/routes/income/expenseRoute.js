@@ -1,5 +1,5 @@
 const express = require("express");
-const {createExpCtrl , fetchAllExpCtrl,fetchExpDetailsCtrl,updateExpCtrl,deleteExpCtrl}= require("../../controllers/income/expenseCtrl");
+const {createExpCtrl , fetchAllExpCtrl,fetchExpDetailsCtrl,updateExpCtrl,deleteExpCtrl}= require("../../controllers/expense/expenseCtrl");
 
 
 
