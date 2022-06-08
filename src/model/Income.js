@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const mongoosePaginate=require("mongoose-paginate-v2");
 //create income schema
 const incomeSchema = new mongoose.Schema(
   {
@@ -31,6 +31,9 @@ const incomeSchema = new mongoose.Schema(
         timestamps: true,
       }
     );
+
+//pagination
+incomeSchema.plugin(mongoosePaginate);
 
 const Income=mongoose.model('Income',incomeSchema);
 module.exports = Income;
