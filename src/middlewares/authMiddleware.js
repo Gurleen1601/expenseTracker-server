@@ -11,7 +11,7 @@ const authMiddleware=expressAsyncHandler(async (req,res,next)=>{
            const decodedUser=jwt.verify(token,process.env.JWT_KEY);
            console.log(decodedUser);
         //find the user
-        const user=User.findById(decodedUser?.id);
+        const user = await User.findById(decodedUser?.id);
         //attach the user to the req object
         req.user = user;
         next();
