@@ -56,7 +56,7 @@ const loginUserCtrl=expressAsyncHandler(async (req,res)=>{
 //user profile
 const userProfileCtrl = expressAsyncHandler(async (req, res) => {
     try {
-      const profile = await User.findById(req?.user?._id).populate('expenses').populate('income');
+      const profile = await User.findById(req?.user?._id).populate(['expenses','income']);
   
       res.json(profile);
     } catch (error) {
