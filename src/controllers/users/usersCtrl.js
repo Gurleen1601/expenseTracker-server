@@ -52,4 +52,43 @@ const loginUserCtrl=expressAsyncHandler(async (req,res)=>{
     throw new Error('Invalid login credentials');
    }
 });
-module.exports = { registerUser , fetchUsersCtrl, loginUserCtrl};
+
+//user profile
+const userProfileCtrl = expressAsyncHandler(async (req, res) => {
+    try {
+      const profile = await User.findById(req?.user?._id).populate('expenses').populate('income');
+  
+      res.json(profile);
+    } catch (error) {
+      res.json(error);
+    }
+  });
+  
+  //update user profile
+  const updateUserCtrl = expressAsyncHandler(async (req, res) => {
+    try {
+      const profile = await User.findByIdAndUpdate(
+        req?.user?._id,
+        {
+          firstname: req?.body?.firstname,
+          lastname: req?.body?.lastname,
+          email: req?.body?.email,
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+      res.json(profile);
+    } catch (error) {
+      res.json(error);
+    }
+  });
+  
+  module.exports = {
+    registerUser,
+    fetchUsersCtrl,
+    loginUserCtrl,
+    userProfileCtrl,
+    updateUserCtrl,
+  };

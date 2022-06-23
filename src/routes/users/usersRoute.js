@@ -1,5 +1,6 @@
 const express = require("express");
-const { registerUser, fetchUsersCtrl ,loginUserCtrl} = require("../../controllers/users/usersCtrl");
+const { registerUser, fetchUsersCtrl ,loginUserCtrl,userProfileCtrl,updateUserCtrl } = require("../../controllers/users/usersCtrl");
+const authMiddleware = require("../../middlewares/authMiddleware");
 
 
 const userRoute = express.Router();
@@ -7,6 +8,7 @@ const userRoute = express.Router();
 userRoute.post("/register", registerUser);
 userRoute.post("/login", loginUserCtrl);
 userRoute.get('/',fetchUsersCtrl);
-
+userRoute.get("/profile",authMiddleware,userProfileCtrl);
+userRoute.put("/update", authMiddleware, updateUserCtrl);
 
 module.exports = userRoute;

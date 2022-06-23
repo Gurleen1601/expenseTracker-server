@@ -10,7 +10,7 @@ const dotenv=require("dotenv");
 const dbConnect = require('./config/dbConnect');
 const incomeRoute = require('./routes/income/incomeRoute');
 const expenseRoute = require('./routes/income/expenseRoute');
-
+const accountStatsRoute = require('./routes/accountStatsRoute/accountStatsRoute');
 // using express
 const app = express();
 
@@ -30,6 +30,9 @@ app.get('/',(req,res) => {
 
 //users' routes
 app.use('/api/users',userRoute);
+
+//account stats
+app.use('/',accountStatsRoute);
 
 //income routes
 app.use('/api/income',incomeRoute);
